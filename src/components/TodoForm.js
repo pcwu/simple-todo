@@ -1,4 +1,7 @@
 import React, { Component, PropTypes } from 'react'
+import TextField from "material-ui/TextField";
+import RaisedButton from 'material-ui/RaisedButton';
+import { Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle } from 'material-ui/Toolbar';
 
 class TodoForm extends Component {
 
@@ -10,9 +13,7 @@ class TodoForm extends Component {
     const text = e.target.value.trim()
     if (!!text && e.which === 13) {
       this.props.addTodo(text)
-      if (this.props.newTodo) {
-        this.setState({ text: '' })
-      }
+      this.setState({ text: '' })
     }
   }
 
@@ -20,24 +21,20 @@ class TodoForm extends Component {
     this.setState({ text: e.target.value })
   }
 
-  handleBlur = e => {
-    if (!this.props.newTodo) {
-      // this.props.addTodo(e.target.value)
-      console.log("Hello World");
-    }
-  }
-
   render() {
     return (
-      <input
+      <Toolbar>
+      <ToolbarGroup>
+      <TextField
+        name="TodoForm"
+        hintText="What needs to be done?"
         type="text"
-        placeholder={this.props.placeholder}
-        autoFocus="true"
         value={this.state.text}
-        onBlur={this.handleBlur}
         onChange={this.handleChange}
         onKeyDown={this.handleSubmit}
       />
+      </ToolbarGroup>
+      </Toolbar>
     )
   }
 }

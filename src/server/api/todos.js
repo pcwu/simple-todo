@@ -19,7 +19,7 @@ const addTodo = (req, res) => {
   });
 };
 
-const removeCompleted = (req, res) => {
+const clearCompleted = (req, res) => {
   Todo.remove({ completed: true }, (err) => {
     if (err) return res.status(500).send({ message: 'Delete completed todos failed.' });
     return res.status(200).json({ message: 'success' });
@@ -40,7 +40,7 @@ const updateTodo = (req, res) => {
   });
 };
 
-const removeTodo = (req, res) => {
+const deleteTodo = (req, res) => {
   Todo.remove({ _id: req.params.id }, (err) => {
     if (err) return res.status(500).send({ message: 'Delete todo failed.' });
     return res.status(200).json({ message: 'success' });
@@ -49,10 +49,10 @@ const removeTodo = (req, res) => {
 
 router.get('/', getAllTodos);
 router.post('/', addTodo);
-router.delete('/', removeCompleted);
+router.delete('/', clearCompleted);
 
 router.get('/:id', getTodo);
 router.put('/:id', updateTodo);
-router.delete('/:id', removeTodo);
+router.delete('/:id', deleteTodo);
 
 export default router;
