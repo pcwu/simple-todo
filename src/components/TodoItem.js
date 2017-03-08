@@ -4,9 +4,9 @@ import Checkbox from 'material-ui/Checkbox';
 import FlatButton from 'material-ui/FlatButton';
 import FontIcon from 'material-ui/FontIcon';
 
+import TodoEdit from './TodoEdit';
 
-
-const TodoItem = ({ todo, actions }) => (
+const TodoItem = ({ todo, actions, editing, setEditing }) => (
   <div>
     <Checkbox
       label={todo.text}
@@ -19,9 +19,15 @@ const TodoItem = ({ todo, actions }) => (
     />
     <FlatButton
       icon={<FontIcon className="material-icons">mode_edit</FontIcon>}
-      onClick={() => { actions.editTodo(todo._id, 'Hello World'); }}
+      onClick={() => { setEditing(true); }}
+    />
+    <TodoEdit
+      editing={editing}
+      setEditing={setEditing}
+      todo={todo}
+      editTodo={actions.editTodo}
     />
   </div>
 );
 
-export default TodoItem;
+export default withState('editing', 'setEditing', false)(TodoItem);

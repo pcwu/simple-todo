@@ -7,17 +7,17 @@ const TodoTab = ({ setFilter }) => (
     <Tab
       label="ALL"
       icon={<FontIcon className="material-icons">assignment</FontIcon>}
-      onClick={() => setFilter(() => () => true)}
+      onClick={() => setFilter('SHOW_ALL')}
     />
     <Tab
       label="ACTIVE"
       icon={<FontIcon className="material-icons">today</FontIcon>}
-      onClick={() => setFilter(() => todo => !todo.completed)}
+      onClick={() => setFilter('SHOW_ACTIVE')}
     />
     <Tab
       label="COMPLETED"
       icon={<FontIcon className="material-icons">check_circle</FontIcon>}
-      onClick={() => setFilter(() => todo => todo.completed)}
+      onClick={() => setFilter('SHOW_COMPLETED')}
     />
   </Tabs>
 );

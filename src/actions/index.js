@@ -1,5 +1,9 @@
 import * as types from '../constants';
 
+export const setFilter = filter => (dispatch) => {
+  dispatch({ type: types[filter] });
+};
+
 /* eslint no-underscore-dangle: ["error", { "allow": ["_id"] }] */
 export const loadTodo = () => (dispatch) => {
   fetch('/api/todos')

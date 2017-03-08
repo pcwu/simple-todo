@@ -1,28 +1,30 @@
 import React, { PropTypes } from 'react';
-import { withState } from 'recompose';
-import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 import TodoForm from './TodoForm';
 import TodoTab from './TodoTab';
 import TodoItem from './TodoItem';
 
+const filters = {
+  SHOW_ALL: () => true,
+  SHOW_ACTIVE: todo => !todo.completed,
+  SHOW_COMPLETED: todo => todo.completed,
+};
 
-const TodoList = ({ todos, actions, todoFilter, setFilter }) => (
+const TodoList = ({ todos, todoFilter, actions }) => (
   <div>
-    <TodoTab setFilter={setFilter} />
-    <TodoForm addTodo={actions.addTodo} />
-    {todos.filter(todoFilter).map(todo =>
+    {todos.filter(filters[todoFilter]).map(todo =>
       <TodoItem
         actions={actions}
         todo={todo}
         key={todo._id}
       />,
     )}
-    <RaisedButton
+    <FlatButton
       label="CLEAR COMPLETED TASKS"
-      fullWidth
       onClick={() => actions.clearCompleted()}
+      secondary
     />
   </div>
 );
 
-export default withState('todoFilter', 'setFilter', () => () => true)(TodoList);
+export default TodoList;

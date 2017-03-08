@@ -1,42 +1,37 @@
 import React, { Component, PropTypes } from 'react'
+import { compose, withHandlers, withState } from 'recompose';
 import TextField from "material-ui/TextField";
 import RaisedButton from 'material-ui/RaisedButton';
 import { Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle } from 'material-ui/Toolbar';
 
-class TodoForm extends Component {
+const enhance = compose(
+  withState('value', 'updateValue', ''),
+  withHandlers({
+    onChange: props => (event) => {
+      props.updateValue(event.target.value);
+    },
+    onSubmit: props => (event) => {
+      if (!!props.value && event.keyCode === 13) {
+        props.addTodo(props.value);
+        props.updateValue('');
+      }
+    },
+  }),
+);
 
-  state = {
-    text: this.props.text || ''
-  }
-
-  handleSubmit = e => {
-    const text = e.target.value.trim()
-    if (!!text && e.which === 13) {
-      this.props.addTodo(text)
-      this.setState({ text: '' })
-    }
-  }
-
-  handleChange = e => {
-    this.setState({ text: e.target.value })
-  }
-
-  render() {
-    return (
-      <Toolbar>
-      <ToolbarGroup>
+const TodoForm = ({ value, onChange, onSubmit }) => (
+  <Toolbar>
+    <ToolbarGroup>
       <TextField
         name="TodoForm"
         hintText="What needs to be done?"
         type="text"
-        value={this.state.text}
-        onChange={this.handleChange}
-        onKeyDown={this.handleSubmit}
+        value={value}
+        onChange={onChange}
+        onKeyDown={onSubmit}
       />
-      </ToolbarGroup>
-      </Toolbar>
-    )
-  }
-}
+    </ToolbarGroup>
+  </Toolbar>
+);
 
-export default TodoForm;
+export default enhance(TodoForm);
