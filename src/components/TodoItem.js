@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { withState } from 'recompose';
 import Checkbox from 'material-ui/Checkbox';
 import FlatButton from 'material-ui/FlatButton';

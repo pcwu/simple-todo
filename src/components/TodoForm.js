@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React from 'react'
 import { compose, withHandlers, withState } from 'recompose';
 import TextField from "material-ui/TextField";
 import RaisedButton from 'material-ui/RaisedButton';
