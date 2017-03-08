@@ -14,6 +14,7 @@ Used
 -   [Redux](https://redux.js.org/)
 -   [Babel](https://babeljs.io/)
 -   [Webpack](https://webpack.github.io/)
+-   [Mateiral-UI](http://www.material-ui.com/)
 
 Usage
 --------
