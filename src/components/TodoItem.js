@@ -12,7 +12,7 @@ const TodoItem = ({ todo, actions, editing, setEditing }) => (
       <Checkbox
         label={todo.text}
         checked={todo.completed}
-        onClick={() => { actions.completeTodo(todo._id, true); }}
+        onClick={() => { actions.completeTodo(todo._id, !todo.completed); }}
       />
     </div>
     <div style={{ width: '20%', float: 'right' }}>
