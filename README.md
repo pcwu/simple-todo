@@ -3,6 +3,8 @@ Todo List
 
 This is a simple todo list web application.
 
+![screenshot.png](screenshot.png)
+
 Used
 --------
 
