@@ -7,20 +7,26 @@ import FontIcon from 'material-ui/FontIcon';
 import TodoEdit from './TodoEdit';
 
 const TodoItem = ({ todo, actions, editing, setEditing }) => (
-  <div>
-    <Checkbox
-      label={todo.text}
-      checked={todo.completed ? true : false}
-      onClick={() => { actions.completeTodo(todo._id, true); }}
-    />
-    <FlatButton
-      icon={<FontIcon className="material-icons">delete</FontIcon>}
-      onClick={() => { actions.deleteTodo(todo._id); }}
-    />
-    <FlatButton
-      icon={<FontIcon className="material-icons">mode_edit</FontIcon>}
-      onClick={() => { setEditing(true); }}
-    />
+  <div style={{ clear: 'both' }}>
+    <div style={{ width: '80%', float: 'left', padding: '6px 0px' }}>
+      <Checkbox
+        label={todo.text}
+        checked={todo.completed}
+        onClick={() => { actions.completeTodo(todo._id, true); }}
+      />
+    </div>
+    <div style={{ width: '20%', float: 'right' }}>
+      <FlatButton
+        icon={<FontIcon className="material-icons">delete</FontIcon>}
+        onClick={() => { actions.deleteTodo(todo._id); }}
+        style={{ marginRight: '5px', minWidth: '36px' }}
+      />
+      <FlatButton
+        icon={<FontIcon className="material-icons">mode_edit</FontIcon>}
+        onClick={() => { setEditing(true); }}
+        style={{ marginRight: '5px', minWidth: '36px' }}
+      />
+    </div>
     <TodoEdit
       editing={editing}
       setEditing={setEditing}

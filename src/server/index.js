@@ -11,9 +11,11 @@ import './db';
 
 const app = express();
 
-const compiler = webpack(webpackConfig);
-app.use(webpackDevMiddleware(compiler, { publicPath: webpackConfig.output.publicPath }));
-app.use(webpackHotMiddleware(compiler));
+if (process.env.NODE_ENV === 'development') {
+  const compiler = webpack(webpackConfig);
+  app.use(webpackDevMiddleware(compiler, { publicPath: webpackConfig.output.publicPath }));
+  app.use(webpackHotMiddleware(compiler));
+};
 
 app.use(morgan(':status :method :url HTTP/:http-version :date[iso] :response-time ms'));
 app.use(bodyParser.json());

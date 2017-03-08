@@ -1,9 +1,62 @@
-### RESTful API規格
+Todo List
+========
 
-功能|     URL   |HTTP Method |Request   | Response
-:---|:---------|:----------:|:--------:|:---------:
-列表| /todos    | GET        | --       | Todo JSONw
-新增| /todos    | POST       | Todo JSON| --
-刪除| /todos/:id| DELETE     | --       | --
-修改| /todos/:id| PUT        | Todo JSON| --
-查詢| /todos/:id| GET        | --       | Todo JSON
+This is a simple todo list web application.
+
+Used
+--------
+
+-   [Node.js](https://nodejs.org/)
+-   [MongoDB](https://www.mongodb.com/)
+-   [React](https://facebook.github.io/react/)
+-   [Redux](https://redux.js.org/)
+-   [Babel](https://babeljs.io/)
+-   [Webpack](https://webpack.github.io/)
+
+Usage
+--------
+
+#### Requirements
+
+-   [NPM](https://npmjs.com/)
+-   [Node.js](https://nodejs.org/)
+-   [MongoDB](https://www.mongodb.com/)
+
+
+#### Install
+
+```
+$ npm install
+```
+
+#### Run Dev
+
+The server will run on [localhost:3000](localhost:3000).
+
+```
+$ npm start
+```
+
+#### Build
+
+```
+$ npm build
+```
+
+
+RESTful API
+--------
+
+Actions         |     URL   |HTTP Method |Request   | Response
+:---------------|:----------|:----------:|:--------:|:---------:
+List all todos  | /todos    | GET        | --       | Todo JSON
+Delete completed| /todos    | DELETE     | --       | --
+Add a todo      | /todos    | POST       | Todo JSON| --
+Get by id       | /todos/:id| GET        | --       | Todo JSON
+Delete by id    | /todos/:id| DELETE     | --       | --
+Update by id    | /todos/:id| PUT        | Todo JSON| --
+
+License
+--------
+
+MIT
