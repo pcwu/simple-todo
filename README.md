@@ -46,7 +46,7 @@ $ npm run build
 #### Run Production
 
 ```
-$ npm run start
+$ npm start
 ```
 
 RESTful API
