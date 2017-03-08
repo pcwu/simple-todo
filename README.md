@@ -29,20 +29,25 @@ Usage
 $ npm install
 ```
 
-#### Run Dev
+#### Run Development
 
 The server will run on [localhost:3000](localhost:3000).
 
 ```
-$ npm start
+$ npm run dev
 ```
 
 #### Build
 
 ```
-$ npm build
+$ npm run build
 ```
 
+#### Run Production
+
+```
+$ npm run start
+```
 
 RESTful API
 --------

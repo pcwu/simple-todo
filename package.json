@@ -44,9 +44,9 @@
     "webpack-hot-middleware": "^2.17.1"
   },
   "scripts": {
-    "build": "webpack --config webpack.config.js",
-    "start": "nodemon --exec babel-node -- src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --config webpack.config.js && babel src -d build",
+    "dev": "NODE_ENV=development nodemon --exec babel-node -- src/index.js",
+    "start": "NODE_ENV=production node build/index.js"
   },
   "author": "Po-Chun Wu <sb1126@gmail.com>",
   "license": "MIT"
