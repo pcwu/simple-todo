@@ -12,6 +12,7 @@ Used
 -   [MongoDB](https://www.mongodb.com/)
 -   [React](https://facebook.github.io/react/)
 -   [Redux](https://redux.js.org/)
+-   [Recompose](https://github.com/acdlite/recompose)
 -   [Babel](https://babeljs.io/)
 -   [Webpack](https://webpack.github.io/)
 -   [Mateiral-UI](http://www.material-ui.com/)
